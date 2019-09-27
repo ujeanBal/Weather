@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using CoreGraphics;
+using Foundation;
 using UIKit;
 using WeatherExplorer1.iOS.ViewControllers;
 
@@ -20,10 +21,20 @@ namespace WeatherExplorer1.iOS
 #pragma warning restore 414
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-           Window = new UIWindow(UIScreen.MainScreen.Bounds);
+            App.Initialize();
+            Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            var controller = new TownsController();
-            controller.View.BackgroundColor = UIColor.Cyan;
+            var controller = new TownsController(new UICollectionViewFlowLayout()/*{
+                ItemSize = new CGSize((float)UIScreen.MainScreen.Bounds.Size.Width-20, 100.0f),
+                HeaderReferenceSize = new CGSize(100, 100),
+                SectionInset = new UIEdgeInsets(0,0,0,0),
+                ScrollDirection = UICollectionViewScrollDirection.Vertical,
+               
+                MinimumInteritemSpacing = 10, // minimum spacing between cells
+                MinimumLineSpacing = 10 // minimum spacing between rows if ScrollDirection is Vertical or between columns if Horizontal
+
+        }*/);
+
             var navController = new UINavigationController(controller);
 
             Window.RootViewController = navController;

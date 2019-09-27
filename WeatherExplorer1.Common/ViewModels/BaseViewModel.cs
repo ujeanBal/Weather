@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using WeatherExplorer1.Models;
 
 namespace WeatherExplorer1
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => ServiceLocator.Instance.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Weather> DataStore; 
+
+        public BaseViewModel()
+        {
+            DataStore = ServiceLocator.Instance.Get<IDataStore<Weather>>();
+        }
 
         bool isBusy = false;
         public bool IsBusy

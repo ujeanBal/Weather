@@ -13,13 +13,13 @@ namespace WeatherExplorer1.Droid
         FloatingActionButton saveButton;
         EditText title, description;
 
-        public ItemsViewModel ViewModel { get; set; }
+       // public ItemsViewModel ViewModel { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            ViewModel = BrowseFragment.ViewModel;
+          //  ViewModel = BrowseFragment.ViewModel;
 
             // Create your application here
             SetContentView(Resource.Layout.activity_add_item);

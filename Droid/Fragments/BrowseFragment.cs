@@ -18,7 +18,7 @@ namespace WeatherExplorer1.Droid
         SwipeRefreshLayout refresher;
 
         ProgressBar progress;
-        public static ItemsViewModel ViewModel { get; set; }
+        //public static ItemsViewModel ViewModel { get; set; }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,14 +29,14 @@ namespace WeatherExplorer1.Droid
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            ViewModel = new ItemsViewModel();
+           // ViewModel = new ItemsViewModel();
 
             View view = inflater.Inflate(Resource.Layout.fragment_browse, container, false);
             var recyclerView =
                 view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
 
             recyclerView.HasFixedSize = true;
-            recyclerView.SetAdapter(adapter = new BrowseItemsAdapter(Activity, ViewModel));
+        //    recyclerView.SetAdapter(adapter = new BrowseItemsAdapter(Activity, ViewModel));
 
             refresher = view.FindViewById<SwipeRefreshLayout>(Resource.Id.refresher);
             refresher.SetColorSchemeColors(Resource.Color.accent);
@@ -76,7 +76,7 @@ namespace WeatherExplorer1.Droid
 
         void Refresher_Refresh(object sender, EventArgs e)
         {
-            ViewModel.LoadItemsCommand.Execute(null);
+          //  ViewModel.LoadItemsCommand.Execute(null);
             refresher.Refreshing = false;
         }
 
@@ -88,19 +88,19 @@ namespace WeatherExplorer1.Droid
 
     class BrowseItemsAdapter : BaseRecycleViewAdapter
     {
-        ItemsViewModel viewModel;
+      //  ItemsViewModel viewModel;
         Activity activity;
 
-        public BrowseItemsAdapter(Activity activity, ItemsViewModel viewModel)
-        {
-            this.viewModel = viewModel;
-            this.activity = activity;
+      //  public BrowseItemsAdapter(Activity activity, ItemsViewModel viewModel)
+      //  {
+          //  this.viewModel = viewModel;
+      //      this.activity = activity;
 
-            this.viewModel.Items.CollectionChanged += (sender, args) =>
-            {
-                this.activity.RunOnUiThread(NotifyDataSetChanged);
-            };
-        }
+          //  this.viewModel.Items.CollectionChanged += (sender, args) =>
+          //  {
+          //      this.activity.RunOnUiThread(NotifyDataSetChanged);
+           // };
+     //   }
 
         // Create new views (invoked by the layout manager)
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

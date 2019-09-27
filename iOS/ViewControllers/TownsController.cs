@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
 using UIKit;
-using WeatherExplorer1.Models;
+
+using WeatherExplorer1.ViewModels;
 
 namespace WeatherExplorer1.iOS.ViewControllers
 {
     public partial class TownsController : UICollectionViewController
     {
-        List<Weather> listWeather;
-        public TownsController(IntPtr handle) : base(handle)
+
+        public TownsController(UICollectionViewLayout layout) : base(layout)
         {
             InitList();
         }
+
+        public TownsController(IntPtr p) : base(p)
+        {
+        }
+
         public TownsController()
         {
             InitList();
@@ -21,44 +29,31 @@ namespace WeatherExplorer1.iOS.ViewControllers
 
         private void InitList()
         {
-            listWeather = new List<Weather>();
-            listWeather.Add(new Weather() { Сity = "Kharkiv", Tеmperature = 23.5 });
-            listWeather.Add(new Weather() { Сity = "Kiev", Tеmperature = 24.5 });
-            listWeather.Add(new Weather() { Сity = "Boston", Tеmperature = 25.5 });
-            listWeather.Add(new Weather() { Сity = "Urmala", Tеmperature = 26.5 });
-            listWeather.Add(new Weather() { Сity = "Moscow", Tеmperature = 27.5 });
-            listWeather.Add(new Weather() { Сity = "Lviv", Tеmperature = 28.5 });
-            listWeather.Add(new Weather() { Сity = "Praga", Tеmperature = 29.5 });
+
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            WeatherCollectionDataSource dataSource = new WeatherCollectionDataSource(new WeathersViewModel());
+            CollectionView.RegisterNibForCell(WeatherCell.Nib, WeatherCell.Key);
+            CollectionView.Source = dataSource;
+
+            UIMenuController.SharedMenuController.MenuItems = new UIMenuItem[] {
+                new UIMenuItem ("Custom", new Selector ("custom"))
+            };
+
+            dataSource.PropertyChanged += DataSource_PropertyChanged;
         }
 
-        public override nint GetItemsCount(UICollectionView collectionView, nint section)
+        private void DataSource_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            return listWeather.Count;
-        }
-
-        public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
-        {
-            var cell = collectionView.DequeueReusableCell(WeatherCell.Key, indexPath) as WeatherCell;
-            if (cell == null)
-            {
-                cell = new WeatherCell();
-                var views = NSBundle.MainBundle.LoadNib(WeatherCell.Key, cell, null);
-                cell = Runtime.GetNSObject(views.ValueAt(0)) as WeatherCell;
-            }
-            cell.PopulateCell(listWeather[indexPath.Row]);
-            return cell;
+            CollectionView.ReloadData();
         }
 
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
         }
     }
 }
