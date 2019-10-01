@@ -8,7 +8,7 @@ namespace WeatherExplorer1
     {
         public static void Initialize()
         {
-            ServiceLocator.Instance.Register<IDataStore<Weather>, WeatherRestService>();
+           // ServiceLocator.Instance.Register<IDataStore<Weather>, WeatherRestService>();
         }
     }
 }

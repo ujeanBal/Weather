@@ -4,7 +4,6 @@ using System.Dynamic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using RestSharp;
 using WeatherExplorer1.Common.Models;
 using WeatherExplorer1.Models;
 
@@ -52,6 +51,7 @@ namespace WeatherExplorer1.Services
                 var result = await response.Content.ReadAsStringAsync();
                 list = JsonConvert.DeserializeObject<WeatherExplorer>(result).list;
             }
+
             return list;
         }
 

@@ -8,12 +8,14 @@ using WeatherExplorer1.Models;
 
 namespace WeatherExplorer1.ViewModels
 {
-    public class WeathersViewModel : BaseViewModel
+    public class WeathersViewModel : BasicViewModel
     {
         public ObservableCollection<Weather> Items { get; set; }
         public Command LoadWeatherCommand { get; set; }
-        public WeathersViewModel()
+        public IDataStore<Weather> DataStore;
+        public WeathersViewModel(IDataStore<Weather> dataStore)
         {
+            DataStore = dataStore;
             Title = "Weathers";
             Items = new ObservableCollection<Weather>();
             LoadWeatherCommand = new Command(async () => await ExecuteLoadWeatherCommand());

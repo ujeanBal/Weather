@@ -37,7 +37,7 @@ namespace WeatherExplorer1.Droid
                 Text = title.Text,
                 Description = description.Text
             };
-            ViewModel.AddItemCommand.Execute(item);
+          //  ViewModel.AddItemCommand.Execute(item);
 
             Finish();
         }

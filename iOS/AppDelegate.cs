@@ -2,6 +2,10 @@
 using Foundation;
 using UIKit;
 using WeatherExplorer1.iOS.ViewControllers;
+using GalaSoft.MvvmLight.Ioc;
+ using GalaSoft.MvvmLight.Threading;
+using GalaSoft.MvvmLight.Views;
+using WeatherExplorer1.ViewModel;
 
 namespace WeatherExplorer1.iOS
 {
@@ -10,6 +14,7 @@ namespace WeatherExplorer1.iOS
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
     {
+
         // class-level declarations
 #pragma warning disable 414
         // class-level declarations
@@ -21,28 +26,29 @@ namespace WeatherExplorer1.iOS
 #pragma warning restore 414
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            App.Initialize();
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            var controller = new TownsController(new UICollectionViewFlowLayout()/*{
-                ItemSize = new CGSize((float)UIScreen.MainScreen.Bounds.Size.Width-20, 100.0f),
-                HeaderReferenceSize = new CGSize(100, 100),
-                SectionInset = new UIEdgeInsets(0,0,0,0),
-                ScrollDirection = UICollectionViewScrollDirection.Vertical,
-               
-                MinimumInteritemSpacing = 10, // minimum spacing between cells
-                MinimumLineSpacing = 10 // minimum spacing between rows if ScrollDirection is Vertical or between columns if Horizontal
 
-        }*/);
+            // Configure and register the MVVM Light NavigationService
+            var nav = new NavigationService();
+           
 
-            var navController = new UINavigationController(controller);
-
+            var navController = new UINavigationController(new TownsController(new UICollectionViewFlowLayout()));
             Window.RootViewController = navController;
 
-            // make the window visible
-            Window.MakeKeyAndVisible();
+            nav.Initialize((UINavigationController)Window.RootViewController);
 
+            RegisterNavigation(nav);
+           
+
+            Window.MakeKeyAndVisible();
             return true;
+        }
+
+        private void RegisterNavigation(NavigationService nav) {
+
+            nav.Configure(ViewModelLocator.DetailPageKey,typeof(WeatherDetailsController));
+            Application.Locator.Register<INavigationService>(nav);
         }
     
     }

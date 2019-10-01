@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace WeatherExplorer1
 {
-    public sealed class ServiceLocator
+    public sealed class ServiceLocator1
     {
-        static readonly Lazy<ServiceLocator> instance = new Lazy<ServiceLocator>(() => new ServiceLocator());
+        static readonly Lazy<ServiceLocator1> instance = new Lazy<ServiceLocator1>(() => new ServiceLocator1());
         readonly Dictionary<Type, Lazy<object>> registeredServices = new Dictionary<Type, Lazy<object>>();
 
-        public static ServiceLocator Instance => instance.Value;
+        public static ServiceLocator1 Instance => instance.Value;
 
         public void Register<TContract, TService>() where TService : new()
         {

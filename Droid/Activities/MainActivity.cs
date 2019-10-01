@@ -75,7 +75,7 @@ namespace WeatherExplorer1.Droid
             switch (position)
             {
                 case 0: return BrowseFragment.NewInstance();
-                case 1: return AboutFragment.NewInstance();
+
             }
             return null;
         }

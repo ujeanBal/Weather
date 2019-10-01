@@ -54,8 +54,8 @@ namespace WeatherExplorer1.Droid
             refresher.Refresh += Refresher_Refresh;
             adapter.ItemClick += Adapter_ItemClick;
 
-            if (ViewModel.Items.Count == 0)
-                ViewModel.LoadItemsCommand.Execute(null);
+     //       if (ViewModel.Items.Count == 0)
+      //          ViewModel.LoadItemsCommand.Execute(null);
         }
 
         public override void OnStop()
@@ -67,10 +67,10 @@ namespace WeatherExplorer1.Droid
 
         void Adapter_ItemClick(object sender, RecyclerClickEventArgs e)
         {
-            var item = ViewModel.Items[e.Position];
+            //var item = ViewModel.Items[e.Position];
             var intent = new Intent(Activity, typeof(BrowseItemDetailActivity));
 
-            intent.PutExtra("data", Newtonsoft.Json.JsonConvert.SerializeObject(item));
+        //    intent.PutExtra("data", Newtonsoft.Json.JsonConvert.SerializeObject(item));
             Activity.StartActivity(intent);
         }
 
@@ -117,15 +117,15 @@ namespace WeatherExplorer1.Droid
         // Replace the contents of a view (invoked by the layout manager)
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            var item = viewModel.Items[position];
+            //var item = viewModel.Items[position];
 
             // Replace the contents of the view with that element
             var myHolder = holder as MyViewHolder;
-            myHolder.TextView.Text = item.Text;
-            myHolder.DetailTextView.Text = item.Description;
+         //   myHolder.TextView.Text = item.Text;
+           // myHolder.DetailTextView.Text = item.Description;
         }
 
-        public override int ItemCount => viewModel.Items.Count;
+		//public override int ItemCount;// => viewModel.Items.Count;
     }
 
     public class MyViewHolder : RecyclerView.ViewHolder
