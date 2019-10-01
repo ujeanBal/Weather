@@ -1,8 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WeatherExplorer1", "WeatherExplorer1\WeatherExplorer1.shproj", "{6D7557A2-BC1B-42D4-BAF9-D067780056E9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherExplorer1.iOS", "iOS\WeatherExplorer1.iOS.csproj", "{0B1673AC-FD7D-4A39-8144-9BD21841D339}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherExplorer1.Droid", "Droid\WeatherExplorer1.Droid.csproj", "{9D49F660-0E62-462E-8478-D3195F22AA92}"

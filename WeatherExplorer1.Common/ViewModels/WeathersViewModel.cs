@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WeatherExplorer1.Models;
 
@@ -21,7 +22,7 @@ namespace WeatherExplorer1.ViewModels
             LoadWeatherCommand = new Command(async () => await ExecuteLoadWeatherCommand());
         }
 
-        private async Task ExecuteLoadWeatherCommand()
+        public async Task ExecuteLoadWeatherCommand()
         {
             if (IsBusy)
                 return;
@@ -35,6 +36,7 @@ namespace WeatherExplorer1.ViewModels
                 foreach (var item in items)
                 {
                     Items.Add(item);
+                    await Task.Delay(1000);
                 }
             }
             catch (Exception ex)

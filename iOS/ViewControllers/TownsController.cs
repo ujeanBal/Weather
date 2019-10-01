@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using CoreGraphics;
 using Foundation;
@@ -17,18 +19,24 @@ namespace WeatherExplorer1.iOS.ViewControllers
     {
         private ObservableCollectionViewSource<Weather, WeatherCell> _source;
         private readonly List<Binding> bindings = new List<Binding>();
+
+        private WeathersViewModel _vm;
         private WeathersViewModel Vm
         {
             get
             {
-                return Application.Locator.Main;
+                if (_vm is null)
+                {
+                    _vm = Application.Locator.Main;
+                }
+
+                return _vm;
             }
         }
 
 
         public TownsController(UICollectionViewLayout layout) : base(layout)
         {
-            InitList();
         }
 
         public TownsController(IntPtr p) : base(p)
@@ -37,54 +45,24 @@ namespace WeatherExplorer1.iOS.ViewControllers
 
         public TownsController(WeatherCollectionDataSource dat)
         {
-            InitList();
         }
 
-        private void InitList()
-        {
-
-        }
-
-        public override void ViewDidLoad()
+        public async override void ViewDidLoad()
         {
             base.ViewDidLoad();
-          WeatherCollectionDataSource dataSource = new WeatherCollectionDataSource(Vm);
-            _source = Vm.Items.GetCollectionViewSource<Weather, WeatherCell>(
-                  BindCell,
-                 null,
-                  WeatherCell.Key,()=> { return new WeatherCollectionDataSource(Vm); });
+
+            CollectionView.RegisterNibForCell(UINib.FromName("WeatherCell", null), WeatherCell.Key);
+            _source = new WeatherCollectionDataSource(Vm);
+
             CollectionView.Source = _source;
-            //  _source.DataSource
-            // Last argument is optional, provides a way to define your own derived class and extend it.
 
-            //    CollectionView.Source = _source;
-
-
-            //     CollectionView.Source = dataSource;
-            //this.SetBinding(
-            // () => Vm.Items,
-            // () => CollectionView.Source).ConvertSourceToTarget(e => e);
-
-            this.SetBinding(
-               () => Vm.Items).WhenSourceChanges(()=>CollectionView.ReloadData());
-          // .ConvertSourceToTarget(e => e);
-
-            CollectionView.RegisterNibForCell(WeatherCell.Nib, WeatherCell.Key);
-       
+            _source.DataSource = Vm.Items;
 
             UIMenuController.SharedMenuController.MenuItems = new UIMenuItem[] {
                 new UIMenuItem ("Custom", new Selector ("custom"))
             };
-        }
 
-        private void BindCell(WeatherCell arg1, Weather arg2, NSIndexPath arg3)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void BindCell(WeatherCell collectionViewCell, Item item, NSIndexPath path)
-        {
-            //collectionViewCell.Text = item.Id.ToString();
+            Vm.LoadWeatherCommand.Execute(null);
         }
 
         public override void DidReceiveMemoryWarning()

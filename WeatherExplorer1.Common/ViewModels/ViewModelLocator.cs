@@ -73,7 +73,6 @@ namespace WeatherExplorer1.ViewModel
             return container.Resolve<T>(new NamedParameter(nameParam, valueParam));
         }
 
-
         public WeathersViewModel Main => container.Resolve<WeathersViewModel>();
 
     }
