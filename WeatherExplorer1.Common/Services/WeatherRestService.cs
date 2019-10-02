@@ -11,7 +11,7 @@ namespace WeatherExplorer1.Services
 {
     public class WeatherRestService : IDataStore<Weather>
     {
-        private readonly string _urlGetMultipleService = "data/2.5/group?id=524901,703448,2643743&units=metric";
+        private readonly string _urlGetMultipleService = "data/2.5/group?id=524901,703448,2643743,707860,713514,2915520,1692861,5432549,5432410,5433904,3176508,6360674,3113066,6357879,4252975&units=metric";
 
         private readonly string _urlGetSingleService = "data/2.5/weather?id=";
 

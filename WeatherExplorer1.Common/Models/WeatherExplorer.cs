@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using System.Collections.Generic;
 using WeatherExplorer1.Models;
 
 namespace WeatherExplorer1.Common.Models

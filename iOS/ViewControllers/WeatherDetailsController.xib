@@ -9,7 +9,18 @@
             <connections>
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
                 <outlet property="Town" destination="1981" id="name-outlet-1981"/>
-                <outlet property="Temperature" destination="1923" id="name-outlet-1923"/>
+                <outlet property="TemperatureLabel" destination="1923" id="name-outlet-1923"/>
+                <outlet property="PressureLabel" destination="1961" id="name-outlet-1961"/>
+                <outlet property="HumidityLabel" destination="8056" id="name-outlet-8056"/>
+                <outlet property="TempMaxLabel" destination="8076" id="name-outlet-8076"/>
+                <outlet property="TempMinLabel" destination="8096" id="name-outlet-8096"/>
+                <outlet property="Temperature" destination="1951" id="name-outlet-1951"/>
+                <outlet property="Pressure" destination="1971" id="name-outlet-1971"/>
+                <outlet property="Humidity" destination="8066" id="name-outlet-8066"/>
+                <outlet property="MaxTemp" destination="8086" id="name-outlet-8086"/>
+                <outlet property="MinTemp" destination="8106" id="name-outlet-8106"/>
+                <outlet property="WindSpeed" destination="9804" id="name-outlet-9804"/>
+                <outlet property="WindSpeedLabel" destination="11846" id="name-outlet-11846"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,7 +33,7 @@
                     <rect key="frame" x="28" y="88.5" width="358" height="609.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teplerature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1923" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1923" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                             <rect key="frame" x="28" y="28" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -34,7 +45,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1961" translatesAutoresizingMaskIntoConstraints="NO">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1961" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" text="Pressure">
                             <rect key="frame" x="28" y="88.5" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -42,6 +53,54 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1971" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="288" y="88.5" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8056" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="28" y="149" width="68.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8066" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="288" y="149" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8076" translatesAutoresizingMaskIntoConstraints="NO" text="Max Temperature">
+                            <rect key="frame" x="28" y="209.5" width="134" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8086" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="288" y="209.5" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8096" translatesAutoresizingMaskIntoConstraints="NO" text="Min Temperature">
+                            <rect key="frame" x="28" y="270" width="129.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8106" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="288" y="270" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9804" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="288" y="330.5" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed of Wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11846" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="28" y="330" width="113" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -56,6 +115,22 @@
                         <constraint id="3184" firstItem="1961" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
                         <constraint id="3460" firstItem="1971" firstAttribute="top" secondItem="1951" secondAttribute="bottom" constant="40"/>
                         <constraint id="3604" firstAttribute="trailingMargin" secondItem="1971" secondAttribute="trailing" constant="20"/>
+                        <constraint id="8661" firstItem="8056" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="8682" firstItem="8056" firstAttribute="top" secondItem="1961" secondAttribute="bottom" constant="40"/>
+                        <constraint id="9083" firstItem="8076" firstAttribute="top" secondItem="8056" secondAttribute="bottom" constant="40"/>
+                        <constraint id="9116" firstItem="8076" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="9218" firstItem="8096" firstAttribute="top" secondItem="8076" secondAttribute="bottom" constant="40"/>
+                        <constraint id="9249" firstItem="8096" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="9348" firstItem="8066" firstAttribute="top" secondItem="1971" secondAttribute="bottom" constant="40"/>
+                        <constraint id="9382" firstAttribute="trailingMargin" secondItem="8066" secondAttribute="trailing" constant="20"/>
+                        <constraint id="9629" firstItem="8086" firstAttribute="top" secondItem="8066" secondAttribute="bottom" constant="40"/>
+                        <constraint id="9661" firstAttribute="trailingMargin" secondItem="8086" secondAttribute="trailing" constant="20"/>
+                        <constraint id="9764" firstItem="8106" firstAttribute="top" secondItem="8086" secondAttribute="bottom" constant="40"/>
+                        <constraint id="9794" firstAttribute="trailingMargin" secondItem="8106" secondAttribute="trailing" constant="20"/>
+                        <constraint id="11767" firstAttribute="trailingMargin" secondItem="9804" secondAttribute="trailing" constant="20"/>
+                        <constraint id="11826" firstItem="9804" firstAttribute="top" secondItem="8106" secondAttribute="bottom" constant="40"/>
+                        <constraint id="12041" firstItem="11846" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="12068" firstItem="11846" firstAttribute="top" secondItem="8096" secondAttribute="bottom" constant="40"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1981" translatesAutoresizingMaskIntoConstraints="NO" text="Town">

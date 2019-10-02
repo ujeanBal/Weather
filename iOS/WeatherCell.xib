@@ -9,20 +9,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="cZE-iV-UFb" customClass="WeatherCell" reuseIdentifier="WeatherCell" translatesAutoresizingMaskIntoConstraints="NO">
-            <rect key="frame" x="0.0" y="0.0" width="319" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="299" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="319" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="299" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="143" translatesAutoresizingMaskIntoConstraints="NO">
-                        <rect key="frame" x="72" y="11" width="174" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="144" translatesAutoresizingMaskIntoConstraints="NO">
-                        <rect key="frame" x="72" y="59" width="174" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="143" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                        <rect key="frame" x="72" y="17" width="174" height="47"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -31,20 +25,15 @@
             </view>
             <connections>
                 <outlet property="Title" destination="143" id="name-outlet-143"/>
-                <outlet property="Temperature" destination="144" id="name-outlet-144"/>
             </connections>
-            <rect key="contentStretch" x="0.0" y="0.0" width="1" height="1"/>
-            <point key="canvasLocation" x="172" y="-33"/>
+            <rect key="contentStretch" x="0.0" y="0.0" width="0.9" height="1"/>
+            <point key="canvasLocation" x="169" y="-40"/>
             <constraints>
-                <constraint id="13033" firstItem="143" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="topMargin" constant="3"/>
-                <constraint id="13041" firstItem="144" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leadingMargin" constant="64"/>
                 <constraint id="13043" firstItem="143" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leadingMargin" constant="64"/>
-                <constraint id="13052" firstAttribute="bottomMargin" secondItem="144" secondAttribute="bottom" constant="12.5"/>
-                <constraint id="13053" firstItem="144" firstAttribute="top" secondItem="143" secondAttribute="bottom" constant="18"/>
-                <constraint id="13063" firstAttribute="trailingMargin" secondItem="144" secondAttribute="trailing" constant="65"/>
                 <constraint id="13065" firstAttribute="trailingMargin" secondItem="143" secondAttribute="trailing" constant="65"/>
+                <constraint id="26900" firstAttribute="bottomMargin" secondItem="143" secondAttribute="bottom" constant="10"/>
+                <constraint id="27221" firstItem="143" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="topMargin" constant="10"/>
             </constraints>
-            <size key="customSize" width="320" height="100"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
                     <real key="value" value="30"/>

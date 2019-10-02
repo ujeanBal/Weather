@@ -15,19 +15,10 @@ namespace WeatherExplorer1.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel Temperature { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel Title { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (Temperature != null) {
-                Temperature.Dispose ();
-                Temperature = null;
-            }
-
             if (Title != null) {
                 Title.Dispose ();
                 Title = null;

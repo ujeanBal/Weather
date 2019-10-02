@@ -1,21 +1,4 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:WeatherExplorer1.iOS"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
 using Autofac;
-
-using GalaSoft.MvvmLight.Ioc;
-using WeatherExplorer1.Common.ViewModel;
 using WeatherExplorer1.Common.ViewModels;
 using WeatherExplorer1.Models;
 using WeatherExplorer1.Services;
@@ -23,24 +6,18 @@ using WeatherExplorer1.ViewModels;
 
 namespace WeatherExplorer1.ViewModel
 {
-    /// <summary>
-    /// This class contains static references to all the view models in the
-    /// application and provides an entry point for the bindings.
-    /// </summary>
+
     public class ViewModelLocator
     {
-        /// <summary>
-		/// The key used by the NavigationService to go to the second page.
-		/// </summary>
 		public const string DetailPageKey = "DetailPage";
-
-        private ContainerBuilder builder;
 
         private readonly IContainer container;
 
+        public WeathersViewModel Main => container.Resolve<WeathersViewModel>();
+
         public ViewModelLocator()
         {
-            builder = new ContainerBuilder();
+           var builder = new ContainerBuilder();
 
             builder.RegisterInstance(new WeatherRestService())
                 .As<IDataStore<Weather>>();
@@ -72,9 +49,5 @@ namespace WeatherExplorer1.ViewModel
         {
             return container.Resolve<T>(new NamedParameter(nameParam, valueParam));
         }
-
-
-        public WeathersViewModel Main => container.Resolve<WeathersViewModel>();
-
     }
 }

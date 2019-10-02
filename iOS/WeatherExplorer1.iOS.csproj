@@ -138,10 +138,6 @@
       <DependentUpon>WeatherCell.cs</DependentUpon>
     </Compile>
     <Compile Include="WeatherCollectionDataSource.cs" />
-    <Compile Include="ViewControllers\SecondViewController.cs" />
-    <Compile Include="ViewControllers\SecondViewController.designer.cs">
-      <DependentUpon>SecondViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\WeatherDetailsController.cs" />
     <Compile Include="ViewControllers\WeatherDetailsController.designer.cs">
       <DependentUpon>WeatherDetailsController.cs</DependentUpon>
@@ -155,7 +151,6 @@
   <ItemGroup>
     <InterfaceDefinition Include="ViewControllers\TownsController.xib" />
     <InterfaceDefinition Include="WeatherCell.xib" />
-    <InterfaceDefinition Include="ViewControllers\SecondViewController.xib" />
     <InterfaceDefinition Include="ViewControllers\WeatherDetailsController.xib" />
   </ItemGroup>
   <ItemGroup>

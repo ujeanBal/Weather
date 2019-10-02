@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using WeatherExplorer1.Common.Helpers;
 using WeatherExplorer1.Models;
 
 namespace WeatherExplorer1.ViewModels
@@ -35,12 +36,14 @@ namespace WeatherExplorer1.ViewModels
                 foreach (var item in items)
                 {
                     Items.Add(item);
+                   
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
+
             finally
             {
                 IsBusy = false;

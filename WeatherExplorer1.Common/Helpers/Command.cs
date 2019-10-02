@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace WeatherExplorer1
+namespace WeatherExplorer1.Common.Helpers
 {
-    public sealed class Command<T> : Command
+     public sealed class Command<T> : Command
     {
         public Command(Action<T> execute) : base(o => execute((T)o))
         {

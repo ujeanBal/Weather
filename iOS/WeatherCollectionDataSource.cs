@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Autofac;
 using CoreGraphics;
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
@@ -15,36 +12,38 @@ using WeatherExplorer1.ViewModels;
 
 namespace WeatherExplorer1.iOS
 {
-    public class WeatherCollectionDataSource : ObservableCollectionViewSource<Weather,WeatherCell>
+    public class WeatherCollectionDataSource : ObservableCollectionViewSource<Weather, WeatherCell>
     {
         WeathersViewModel WeathersExplorer;
 
         public WeatherCollectionDataSource(WeathersViewModel weathersExplorer)
         {
             WeathersExplorer = weathersExplorer;
-
-            WeathersExplorer.LoadWeatherCommand.Execute(null);
-        
+            DataSource = weathersExplorer.Items;
         }
-
-
-
-
-       
 
         public override nint NumberOfSections(UICollectionView collectionView)
         {
+            base.NumberOfSections(collectionView);
+
             return 1;
         }
 
         public override nint GetItemsCount(UICollectionView collectionView, nint section)
         {
+            base.GetItemsCount(collectionView, section);
+
             return WeathersExplorer.Items.Count;
         }
 
         public override bool ShouldHighlightItem(UICollectionView collectionView, NSIndexPath indexPath)
         {
             return true;
+        }
+
+        protected override void BindCell(UICollectionViewCell cell, object item, NSIndexPath indexPath)
+        {
+            (cell as WeatherCell).PopulateCell(item as Weather);
         }
 
         public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
@@ -55,15 +54,15 @@ namespace WeatherExplorer1.iOS
             return cell;
         }
 
-        [Export("collectionView:layout:sizeForItemAtIndexPath:"), CompilerGenerated]
+    [Export("collectionView:layout:sizeForItemAtIndexPath:"), CompilerGenerated]
         public virtual CGSize GetSizeForItem(UICollectionView collectionView,
             UICollectionViewLayout layout, NSIndexPath indexPath)
         {
 
-            nfloat mainWidth = collectionView.Frame.Width;
+            nfloat mainWidth = collectionView.Frame.Width-20f;
             nfloat cellWidth = mainWidth;
 
-            nfloat mainHeight = (collectionView.Frame.Height * (nfloat)0.75);
+            nfloat mainHeight = (collectionView.Frame.Height * (nfloat)0.30);
             nfloat cellHeight = mainHeight / 5;
 
             return new CGSize(cellWidth, cellHeight);
@@ -73,8 +72,9 @@ namespace WeatherExplorer1.iOS
         public override void ItemSelected(UICollectionView collectionView, NSIndexPath indexPath)
         {
             var navigation = Application.Locator.Resolve<INavigationService>();
+
             navigation.NavigateTo(ViewModelLocator.DetailPageKey,
-                Application.Locator.ResolveWithParam<WeatherDetailViewModel,Weather>
+                Application.Locator.ResolveWithParam<WeatherDetailViewModel, Weather>
                 ("source", WeathersExplorer.Items[indexPath.Row]));
         }
 

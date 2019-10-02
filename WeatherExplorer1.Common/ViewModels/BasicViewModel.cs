@@ -7,16 +7,9 @@ using WeatherExplorer1.Models;
 
 namespace WeatherExplorer1
 {
-    public class BasicViewModel :ViewModelBase
+    public class BasicViewModel:ViewModelBase
     {
-      
-
-        public BasicViewModel()
-        {
-           
-        }
-
-        bool isBusy = false;
+        bool isBusy;
         public bool IsBusy
         {
             get { return isBusy; }
