@@ -8,14 +8,19 @@ namespace WeatherExplorer1.iOS
 {
     public partial class WeatherCell : UICollectionViewCell
     {
-        public static readonly NSString Key = new NSString("WeatherCell");
+        public static readonly NSString Key;
+
+        public static readonly UINib Nib;
 
         static WeatherCell()
         {
+            var name = "WeatherCell";
+            Nib = UINib.FromName(name, null);
+            Key = new NSString(name);
         }
 
         [Export("initWithFrame:")]
-        public WeatherCell(CGRect frame):base(frame)
+        public WeatherCell(CGRect frame) : base(frame)
         {
         }
 
@@ -23,7 +28,6 @@ namespace WeatherExplorer1.iOS
         {
             BackgroundView = new UIView { BackgroundColor = UIColor.White };
             Layer.CornerRadius = 20.0F;
-            // LayoutMargins = new UIEdgeInsets(20, 20, 20, 20);
         }
 
         public void PopulateCell(Weather currentWeather)

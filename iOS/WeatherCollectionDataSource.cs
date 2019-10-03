@@ -54,12 +54,12 @@ namespace WeatherExplorer1.iOS
             return cell;
         }
 
-    [Export("collectionView:layout:sizeForItemAtIndexPath:"), CompilerGenerated]
+        [Export("collectionView:layout:sizeForItemAtIndexPath:"), CompilerGenerated]
         public virtual CGSize GetSizeForItem(UICollectionView collectionView,
-            UICollectionViewLayout layout, NSIndexPath indexPath)
+        UICollectionViewLayout layout, NSIndexPath indexPath)
         {
 
-            nfloat mainWidth = collectionView.Frame.Width-20f;
+            nfloat mainWidth = collectionView.Frame.Width - 20f;
             nfloat cellWidth = mainWidth;
 
             nfloat mainHeight = (collectionView.Frame.Height * (nfloat)0.30);
@@ -67,7 +67,6 @@ namespace WeatherExplorer1.iOS
 
             return new CGSize(cellWidth, cellHeight);
         }
-
 
         public override void ItemSelected(UICollectionView collectionView, NSIndexPath indexPath)
         {
@@ -78,5 +77,13 @@ namespace WeatherExplorer1.iOS
                 ("source", WeathersExplorer.Items[indexPath.Row]));
         }
 
+        public override UICollectionReusableView GetViewForSupplementaryElement(UICollectionView collectionView,
+            NSString elementKind, NSIndexPath indexPath)
+        {
+            var headerView = collectionView.DequeueReusableSupplementaryView(elementKind,
+                MyCollectionViewCell.headerId, indexPath) as MyCollectionViewCell;
+            headerView.PooulateText("Weather now");
+            return headerView;
+        }
     }
 }

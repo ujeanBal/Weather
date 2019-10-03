@@ -3,6 +3,7 @@ using UIKit;
 using WeatherExplorer1.iOS.ViewControllers;
 using GalaSoft.MvvmLight.Views;
 using WeatherExplorer1.ViewModel;
+using CoreGraphics;
 
 namespace WeatherExplorer1.iOS
 {
@@ -22,8 +23,14 @@ namespace WeatherExplorer1.iOS
 
             var nav = new NavigationService();
 
-            var navController = new UINavigationController(new TownsController(new UICollectionViewFlowLayout()));
-            //  SectionInset= new UIEdgeInsets(10f,10f,10f,10f)}  ));
+
+            var navController = new UINavigationController(new TownsController(new UICollectionViewFlowLayout()
+            {
+                HeaderReferenceSize = new CGSize(100, 100),
+                SectionInset = new UIEdgeInsets(10f, 10f, 10f, 10f)
+
+            }));
+
             Window.RootViewController = navController;
 
             nav.Initialize((UINavigationController)Window.RootViewController);

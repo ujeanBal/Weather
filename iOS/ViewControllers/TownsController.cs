@@ -30,10 +30,9 @@ namespace WeatherExplorer1.iOS.ViewControllers
             }
         }
 
-
         public TownsController(UICollectionViewLayout layout) : base(layout)
         {
-            CollectionView.BackgroundColor = UIColor.LightGray;
+      
         }
 
         public TownsController(IntPtr p) : base(p)
@@ -50,20 +49,18 @@ namespace WeatherExplorer1.iOS.ViewControllers
         {
             base.ViewDidLoad();
 
-            CollectionView.ContentInset = new UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10);
+            CollectionView.RegisterNibForSupplementaryView(MyCollectionViewCell.Nib,
+                UICollectionElementKindSection.Header, MyCollectionViewCell.headerId);
+            CollectionView.RegisterNibForCell(WeatherCell.Nib, WeatherCell.Key);
 
-            CollectionView.RegisterNibForCell(UINib.FromName("WeatherCell", null), WeatherCell.Key);
+            CollectionView.ContentInset = new UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10);
+            CollectionView.BackgroundColor = UIColor.LightGray;
 
             _source = new WeatherCollectionDataSource(Vm);
             CollectionView.Source = _source;
 
-            UIMenuController.SharedMenuController.MenuItems = new UIMenuItem[] {
-                new UIMenuItem ("Custom", new Selector ("custom"))
-            };
-
             Vm.LoadWeatherCommand.Execute(null);
         }
-
     }
 }
 

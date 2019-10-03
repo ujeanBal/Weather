@@ -14,19 +14,19 @@ namespace WeatherExplorer1.Droid
         /// </summary>
         protected override int LayoutResource => Resource.Layout.activity_item_details;
 
-        ItemDetailViewModel viewModel;
+        //ItemDetailViewModel viewModel;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             var data = Intent.GetStringExtra("data");
 
-            var item = Newtonsoft.Json.JsonConvert.DeserializeObject<Item>(data);
-            viewModel = new ItemDetailViewModel(item);
+           // var item = Newtonsoft.Json.JsonConvert.DeserializeObject<Item>(data);
+          //  viewModel = new ItemDetailViewModel(item);
 
-            FindViewById<TextView>(Resource.Id.description).Text = item.Description;
+           // FindViewById<TextView>(Resource.Id.description).Text = item.Description;
 
-            SupportActionBar.Title = item.Text;
+           // SupportActionBar.Title = item.Text;
         }
 
         protected override void OnStart()

@@ -14,7 +14,7 @@
         <view contentMode="scaleToFill" id="2" translatesAutoresizingMaskIntoConstraints="NO">
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask"/>
-            <color key="backgroundColor" systemColor="systemPinkColor" colorSpace="custom" customColorSpace="sRGB" red="1" green="0.176470588235294" blue="0.333333333333333" alpha="1"/>
+            <color key="backgroundColor" systemColor="linkColor" colorSpace="calibratedRGB" red="0" green="0.47843137254902" blue="1" alpha="1"/>
             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
         </view>
     </objects>
