@@ -26,7 +26,7 @@ namespace WeatherExplorer1.iOS
 
             var navController = new UINavigationController(new TownsController(new UICollectionViewFlowLayout()
             {
-                HeaderReferenceSize = new CGSize(100, 100),
+               // HeaderReferenceSize = new CGSize(100, 100),
                 SectionInset = new UIEdgeInsets(10f, 10f, 10f, 10f)
 
             }));

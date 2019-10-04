@@ -8,6 +8,9 @@ namespace WeatherExplorer1.Models
         [JsonProperty(PropertyName="name")]
         public string Сity { get; set; }
 
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+
         [JsonProperty(PropertyName="main.temp")]
         public double Tеmperature { get; set; }
 

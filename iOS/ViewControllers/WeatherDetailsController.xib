@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" useAutolayout="YES" useTraitCollections="YES">
+    <device id="retina5_5" orientation="portrait"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,6 +22,8 @@
                 <outlet property="MinTemp" destination="8106" id="name-outlet-8106"/>
                 <outlet property="WindSpeed" destination="9804" id="name-outlet-9804"/>
                 <outlet property="WindSpeedLabel" destination="11846" id="name-outlet-11846"/>
+                <outlet property="SomeDetailsView" destination="14484" id="name-outlet-14484"/>
+                <outlet property="ShowDetails" destination="25946" id="name-outlet-25946"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -29,125 +32,158 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <subviews>
-                <view contentMode="scaleToFill" id="1886" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                    <rect key="frame" x="28" y="88.5" width="358" height="609.5"/>
+                <view contentMode="scaleToFill" id="1886" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="28" y="82" width="358" height="460"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1923" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                            <rect key="frame" x="28" y="28" width="42" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1923" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="28" y="28" width="97.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1951" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="288" y="28" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1961" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" text="Pressure">
-                            <rect key="frame" x="28" y="88.5" width="42" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1961" text="Pressure" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="28" y="88.5" width="67.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1971" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="288" y="88.5" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8056" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="28" y="149" width="68.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8066" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="288" y="149" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8076" translatesAutoresizingMaskIntoConstraints="NO" text="Max Temperature">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8076" text="Max Temperature" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="28" y="209.5" width="134" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8086" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="288" y="209.5" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8096" translatesAutoresizingMaskIntoConstraints="NO" text="Min Temperature">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8096" text="Min Temperature" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="28" y="270" width="129.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8106" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="288" y="270" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9804" translatesAutoresizingMaskIntoConstraints="NO">
                             <rect key="frame" x="288" y="330.5" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed of Wind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11846" translatesAutoresizingMaskIntoConstraints="NO">
-                            <rect key="frame" x="28" y="330" width="113" height="20.5"/>
+                            <rect key="frame" x="28" y="330.5" width="113" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="25946" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="28" y="392.5" width="302" height="30"/>
+                            <color key="backgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0.521032989" green="0.7258549333" blue="0.7376335859" alpha="1"/>
+                            <state key="normal" title="Show Country Name">
+                                <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="titleShadowColor" colorSpace="custom" customColorSpace="sRGB" red="0.521032989" green="0.7258549333" blue="0.7376335859" alpha="1"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint id="2225" firstItem="1923" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="2247" firstItem="1923" firstAttribute="top" secondItem="1886" secondAttribute="topMargin" constant="20"/>
-                        <constraint id="2307" firstItem="1961" firstAttribute="top" secondItem="1923" secondAttribute="bottom" constant="40"/>
-                        <constraint id="3041" firstItem="1951" firstAttribute="top" secondItem="1886" secondAttribute="topMargin" constant="20"/>
-                        <constraint id="3111" firstAttribute="trailingMargin" secondItem="1951" secondAttribute="trailing" constant="20"/>
-                        <constraint id="3184" firstItem="1961" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="3460" firstItem="1971" firstAttribute="top" secondItem="1951" secondAttribute="bottom" constant="40"/>
-                        <constraint id="3604" firstAttribute="trailingMargin" secondItem="1971" secondAttribute="trailing" constant="20"/>
-                        <constraint id="8661" firstItem="8056" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="8682" firstItem="8056" firstAttribute="top" secondItem="1961" secondAttribute="bottom" constant="40"/>
-                        <constraint id="9083" firstItem="8076" firstAttribute="top" secondItem="8056" secondAttribute="bottom" constant="40"/>
-                        <constraint id="9116" firstItem="8076" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="9218" firstItem="8096" firstAttribute="top" secondItem="8076" secondAttribute="bottom" constant="40"/>
-                        <constraint id="9249" firstItem="8096" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="9348" firstItem="8066" firstAttribute="top" secondItem="1971" secondAttribute="bottom" constant="40"/>
-                        <constraint id="9382" firstAttribute="trailingMargin" secondItem="8066" secondAttribute="trailing" constant="20"/>
-                        <constraint id="9629" firstItem="8086" firstAttribute="top" secondItem="8066" secondAttribute="bottom" constant="40"/>
-                        <constraint id="9661" firstAttribute="trailingMargin" secondItem="8086" secondAttribute="trailing" constant="20"/>
-                        <constraint id="9764" firstItem="8106" firstAttribute="top" secondItem="8086" secondAttribute="bottom" constant="40"/>
-                        <constraint id="9794" firstAttribute="trailingMargin" secondItem="8106" secondAttribute="trailing" constant="20"/>
-                        <constraint id="11767" firstAttribute="trailingMargin" secondItem="9804" secondAttribute="trailing" constant="20"/>
-                        <constraint id="11826" firstItem="9804" firstAttribute="top" secondItem="8106" secondAttribute="bottom" constant="40"/>
-                        <constraint id="12041" firstItem="11846" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="12068" firstItem="11846" firstAttribute="top" secondItem="8096" secondAttribute="bottom" constant="40"/>
+                        <constraint id="36100" firstAttribute="trailingMargin" secondItem="1951" secondAttribute="trailing" constant="20"/>
+                        <constraint id="36113" firstItem="1951" firstAttribute="top" secondItem="1886" secondAttribute="topMargin" constant="20"/>
+                        <constraint id="36413" firstItem="1971" firstAttribute="top" secondItem="1951" secondAttribute="bottom" constant="40"/>
+                        <constraint id="36437" firstAttribute="trailingMargin" secondItem="1971" secondAttribute="trailing" constant="20"/>
+                        <constraint id="36739" firstItem="8066" firstAttribute="top" secondItem="1971" secondAttribute="bottom" constant="40"/>
+                        <constraint id="36761" firstAttribute="trailingMargin" secondItem="8066" secondAttribute="trailing" constant="20"/>
+                        <constraint id="37065" firstItem="8086" firstAttribute="top" secondItem="8066" secondAttribute="bottom" constant="40"/>
+                        <constraint id="37085" firstAttribute="trailingMargin" secondItem="8086" secondAttribute="trailing" constant="20"/>
+                        <constraint id="37391" firstItem="8106" firstAttribute="top" secondItem="8086" secondAttribute="bottom" constant="40"/>
+                        <constraint id="37409" firstAttribute="trailingMargin" secondItem="8106" secondAttribute="trailing" constant="20"/>
+                        <constraint id="37717" firstItem="9804" firstAttribute="top" secondItem="8106" secondAttribute="bottom" constant="40"/>
+                        <constraint id="37733" firstAttribute="trailingMargin" secondItem="9804" secondAttribute="trailing" constant="20"/>
+                        <constraint id="38057" firstItem="1923" firstAttribute="top" secondItem="1886" secondAttribute="topMargin" constant="20"/>
+                        <constraint id="38070" firstItem="1923" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="38229" firstItem="1961" firstAttribute="top" secondItem="1923" secondAttribute="bottom" constant="40"/>
+                        <constraint id="38254" firstItem="1961" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="38380" firstItem="8056" firstAttribute="top" secondItem="1961" secondAttribute="bottom" constant="40"/>
+                        <constraint id="38403" firstItem="8056" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="38531" firstItem="8076" firstAttribute="top" secondItem="8056" secondAttribute="bottom" constant="40"/>
+                        <constraint id="38552" firstItem="8076" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="38682" firstItem="8096" firstAttribute="top" secondItem="8076" secondAttribute="bottom" constant="40"/>
+                        <constraint id="38701" firstItem="8096" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="38846" firstItem="11846" firstAttribute="top" secondItem="8096" secondAttribute="bottom" constant="40"/>
+                        <constraint id="38863" firstItem="11846" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="38986" firstItem="25946" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
+                        <constraint id="38999" firstAttribute="trailingMargin" secondItem="25946" secondAttribute="trailing" constant="20"/>
+                        <constraint id="39012" firstAttribute="bottomMargin" secondItem="25946" secondAttribute="bottom" constant="29.5"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1981" translatesAutoresizingMaskIntoConstraints="NO" text="Town">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1981" text="Town" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
                     <rect key="frame" x="68" y="38" width="278" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" id="14484" translatesAutoresizingMaskIntoConstraints="NO">
+                    <rect key="frame" x="18" y="588" width="378" height="130"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor" colorSpace="calibratedRGB" red="1" green="0.8" blue="0" alpha="1"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <constraints>
+                        <constraint id="35058" firstAttribute="height" constant="130"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
+            <point key="canvasLocation" x="27" y="39"/>
             <constraints>
-                <constraint id="2014" firstItem="1981" firstAttribute="leading" secondItem="2" secondAttribute="leadingMargin" constant="60"/>
-                <constraint id="2034" firstAttribute="trailingMargin" secondItem="1981" secondAttribute="trailing" constant="60"/>
-                <constraint id="2054" firstItem="1981" firstAttribute="top" secondItem="2" secondAttribute="topMargin" constant="30"/>
-                <constraint id="2073" firstItem="1886" firstAttribute="top" secondItem="1981" secondAttribute="bottom" constant="25.5"/>
-                <constraint id="2125" firstItem="1886" firstAttribute="leading" secondItem="2" secondAttribute="leadingMargin" constant="20"/>
-                <constraint id="2145" firstAttribute="trailingMargin" secondItem="1886" secondAttribute="trailing" constant="20"/>
-                <constraint id="2165" firstAttribute="bottomMargin" secondItem="1886" secondAttribute="bottom" constant="34"/>
+                <constraint id="29799" firstItem="1981" firstAttribute="top" secondItem="2" secondAttribute="topMargin" constant="30"/>
+                <constraint id="29818" firstItem="1981" firstAttribute="leading" secondItem="2" secondAttribute="leadingMargin" constant="60"/>
+                <constraint id="29837" firstAttribute="trailingMargin" secondItem="1981" secondAttribute="trailing" constant="60"/>
+                <constraint id="34980" firstItem="14484" firstAttribute="leading" secondItem="2" secondAttribute="leadingMargin" constant="10"/>
+                <constraint id="35000" firstAttribute="bottomMargin" secondItem="14484" secondAttribute="bottom" constant="10"/>
+                <constraint id="35020" firstAttribute="trailingMargin" secondItem="14484" secondAttribute="trailing" constant="10"/>
+                <constraint id="35710" firstItem="1886" firstAttribute="leading" secondItem="2" secondAttribute="leadingMargin" constant="20"/>
+                <constraint id="35713" firstAttribute="trailingMargin" secondItem="1886" secondAttribute="trailing" constant="20"/>
+                <constraint id="35714" firstItem="1886" firstAttribute="top" secondItem="1981" secondAttribute="bottom" constant="20"/>
+                <constraint id="35718" firstItem="14484" firstAttribute="top" secondItem="1886" secondAttribute="bottom" constant="46"/>
             </constraints>
         </view>
     </objects>

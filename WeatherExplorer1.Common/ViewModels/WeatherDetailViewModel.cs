@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using WeatherExplorer1.Common.Helpers;
+using WeatherExplorer1.Common.Models;
 using WeatherExplorer1.Models;
 
 namespace WeatherExplorer1.Common.ViewModels
@@ -8,11 +11,79 @@ namespace WeatherExplorer1.Common.ViewModels
     {
         private Weather _source;
 
-        public WeatherDetailViewModel(Weather source)
+        private SomeDetails info;
+
+        public Command LoadDetailsCommand { get; set; }
+
+        public Command NeedLoadDetailsCommand { get; set; }
+
+        public IDataStore<SomeDetails> DataStore;
+
+        private bool _isDetailsLoaded;
+
+        private bool _needToDetailsLoad;
+
+        public WeatherDetailViewModel(Weather source, IDataStore<SomeDetails> dataStore)
         {
             _source = source;
+            info = new SomeDetails();
+            DataStore = dataStore;
             Title = "Details";
+            LoadDetailsCommand = new Command(async () => await ExecuteLoadDetailsCommand());
+            NeedLoadDetailsCommand = new Command(() => ExecuteNeedLoadDetailsCommand());
         }
+
+        private void ExecuteNeedLoadDetailsCommand()
+        {
+            NeedToDetailsLoad = NeedToDetailsLoad == true ? false : true;
+        }
+
+        private async Task ExecuteLoadDetailsCommand()
+        {
+
+            Country = (await DataStore.GetItemAsync(_source.Id)).Country;
+            if (info != null)
+                IsDetailsLoaded = true;
+        }
+
+        public bool IsDetailsLoaded
+        {
+            get
+            {
+                return _isDetailsLoaded;
+            }
+            set
+            {
+                Set(ref _isDetailsLoaded, value);
+            }
+        }
+
+        public bool NeedToDetailsLoad
+        {
+            get
+            {
+                return _needToDetailsLoad;
+            }
+            set
+            {
+                if (value == true) LoadDetailsCommand.Execute(null);
+                Set(ref _needToDetailsLoad, value);
+            }
+        }
+
+        public string Country
+        {
+            get
+            {
+                return info.Country;
+            }
+            set
+            {
+                info.Country = value;
+                RaisePropertyChanged("Country");
+            }
+        }
+
 
         public string TownTitle
         {

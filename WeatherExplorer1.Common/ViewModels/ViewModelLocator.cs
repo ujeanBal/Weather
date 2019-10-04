@@ -1,4 +1,6 @@
 using Autofac;
+using WeatherExplorer1.Common.Models;
+using WeatherExplorer1.Common.Services;
 using WeatherExplorer1.Common.ViewModels;
 using WeatherExplorer1.Models;
 using WeatherExplorer1.Services;
@@ -22,10 +24,13 @@ namespace WeatherExplorer1.ViewModel
             builder.RegisterInstance(new WeatherRestService())
                 .As<IDataStore<Weather>>();
 
+            builder.RegisterInstance(new SomeDetailsRestService())
+             .As<IDataStore<SomeDetails>>();
+
             builder.RegisterType<WeathersViewModel>();
 
             builder.Register((c, p) =>
-                new WeatherDetailViewModel(p.Named<Weather>("source")))
+                new WeatherDetailViewModel(p.Named<Weather>("source"),container.Resolve<IDataStore<SomeDetails>>()))
                 .As<WeatherDetailViewModel>();
 
             container = builder.Build();

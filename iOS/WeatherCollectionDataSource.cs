@@ -68,6 +68,11 @@ namespace WeatherExplorer1.iOS
             return new CGSize(cellWidth, cellHeight);
         }
 
+        [Export("collectionView:layout:referenceSizeForHeaderInSection:")]
+        public virtual CGSize GetReferenceSizeForHeader(UIKit.UICollectionView collectionView, UIKit.UICollectionViewLayout layout, nint section) {
+                return new CGSize(100, 100);
+        }
+
         public override void ItemSelected(UICollectionView collectionView, NSIndexPath indexPath)
         {
             var navigation = Application.Locator.Resolve<INavigationService>();

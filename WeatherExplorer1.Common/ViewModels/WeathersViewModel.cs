@@ -12,15 +12,21 @@ namespace WeatherExplorer1.ViewModels
     public class WeathersViewModel : BasicViewModel
     {
         public ObservableCollection<Weather> Items { get; set; }
+
         public Command LoadWeatherCommand { get; set; }
+     
         public IDataStore<Weather> DataStore;
+
         public WeathersViewModel(IDataStore<Weather> dataStore)
         {
             DataStore = dataStore;
             Title = "Weathers";
             Items = new ObservableCollection<Weather>();
             LoadWeatherCommand = new Command(async () => await ExecuteLoadWeatherCommand());
+          
         }
+
+     
 
         private async Task ExecuteLoadWeatherCommand()
         {

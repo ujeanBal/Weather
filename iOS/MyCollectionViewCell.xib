@@ -32,7 +32,7 @@
                 <outlet property="HeaderLabel" destination="216" id="name-outlet-216"/>
             </connections>
             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-            <color key="backgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0.521032990563684" green="0.725854906063386" blue="0.737633581606218" alpha="1"/>
+            <color key="backgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0.521032989025116" green="0.725854933261871" blue="0.737633585929871" alpha="1"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
                     <real key="value" value="20"/>

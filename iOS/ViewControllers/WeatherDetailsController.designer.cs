@@ -40,6 +40,14 @@ namespace WeatherExplorer1.iOS.ViewControllers
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton ShowDetails { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView SomeDetailsView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel Temperature { get; set; }
 
         [Outlet]
@@ -96,6 +104,16 @@ namespace WeatherExplorer1.iOS.ViewControllers
             if (PressureLabel != null) {
                 PressureLabel.Dispose ();
                 PressureLabel = null;
+            }
+
+            if (ShowDetails != null) {
+                ShowDetails.Dispose ();
+                ShowDetails = null;
+            }
+
+            if (SomeDetailsView != null) {
+                SomeDetailsView.Dispose ();
+                SomeDetailsView = null;
             }
 
             if (Temperature != null) {

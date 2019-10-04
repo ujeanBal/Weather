@@ -146,6 +146,10 @@
     <Compile Include="MyCollectionViewCell.designer.cs">
       <DependentUpon>MyCollectionViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoView.cs" />
+    <Compile Include="InfoView.designer.cs">
+      <DependentUpon>InfoView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -157,6 +161,7 @@
     <InterfaceDefinition Include="WeatherCell.xib" />
     <InterfaceDefinition Include="ViewControllers\WeatherDetailsController.xib" />
     <InterfaceDefinition Include="MyCollectionViewCell.xib" />
+    <InterfaceDefinition Include="InfoView.xib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WeatherExplorer1.Common\WeatherExplorer1.Common.csproj">
