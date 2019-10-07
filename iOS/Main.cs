@@ -9,6 +9,6 @@ namespace WeatherExplorer1.iOS
 
         static void Main(string[] args) => UIApplication.Main(args, null, "AppDelegate");
 
-        public static ViewModelLocator Locator => locator ?? (locator = new ViewModelLocator());
+        public static ViewModelLocator Locator => locator ?? (locator = ViewModelLocator.GetInstance());
     }
 }

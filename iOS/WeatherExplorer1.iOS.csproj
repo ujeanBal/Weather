@@ -109,6 +109,7 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.4.9.4\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=0ffbc31322e9d308" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />

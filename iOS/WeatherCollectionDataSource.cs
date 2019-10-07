@@ -75,11 +75,7 @@ namespace WeatherExplorer1.iOS
 
         public override void ItemSelected(UICollectionView collectionView, NSIndexPath indexPath)
         {
-            var navigation = Application.Locator.Resolve<INavigationService>();
-
-            navigation.NavigateTo(ViewModelLocator.DetailPageKey,
-                Application.Locator.ResolveWithParam<WeatherDetailViewModel, Weather>
-                ("source", WeathersExplorer.Items[indexPath.Row]));
+            WeathersExplorer.ItemsSelectedCommand.Execute(WeathersExplorer.Items[indexPath.Row]);
         }
 
         public override UICollectionReusableView GetViewForSupplementaryElement(UICollectionView collectionView,

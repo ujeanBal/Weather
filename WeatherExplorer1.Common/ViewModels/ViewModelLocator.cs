@@ -11,7 +11,15 @@ namespace WeatherExplorer1.ViewModel
 
     public class ViewModelLocator
     {
-		public const string DetailPageKey = "DetailPage";
+        private static ViewModelLocator instance;
+
+        public static ViewModelLocator GetInstance()
+        {
+            if (instance == null)
+                instance = new ViewModelLocator();
+            return instance;
+        }
+        public const string DetailPageKey = "DetailPage";
 
         private readonly IContainer container;
 

@@ -45,38 +45,35 @@ namespace WeatherExplorer1.iOS.ViewControllers
             _bindings.Add(this.SetBinding(() => ViewModel.TеmperatureMax, () => MaxTemp.Text));
             _bindings.Add(this.SetBinding(() => ViewModel.TеmperatureMin, () => MinTemp.Text));
             _bindings.Add(this.SetBinding(() => ViewModel.WindSpeed, () => WindSpeed.Text));
-            _bindings.Add(this.SetBinding(() => this.ViewModel.NeedToDetailsLoad, () => this.NeedLoad));
-            _bindings.Add(this.SetBinding(() => this.NeedLoad, () => this.SomeDetailsView.Hidden).
-                ConvertSourceToTarget((bool arg) => arg == true ? false : true));
+            _bindings.Add(this.SetBinding(() => this.ViewModel.IsDetailsLoaded, () => this.NeedLoad));
+
+            _bindings.Add(this.SetBinding(() => this.ViewModel.NeedShow, () => this.SomeDetailsView.Hidden).
+                ConvertSourceToTarget((bool arg) => !arg));
+
+            _bindings.Add(this.SetBinding(() => this.ViewModel.NeedShow, () => this.showHideLabel.Text).
+               ConvertSourceToTarget((bool arg) => (arg == true ? "Hide Country" : "Show Country")));
+
+            _bindings.Add(this.SetBinding(() => this.ViewModel.NeedShow, () => this.ShowDetails.On, BindingMode.TwoWay));
+
             _bindings.Add(this.SetBinding(() => NeedLoad).WhenSourceChanges(NeedToloadChange));
-            _bindings.Add(this.SetBinding(() => ViewModel.IsDetailsLoaded).WhenSourceChanges(UpdateDynamicView));
 
-            this.ShowDetails.SetCommand("TouchUpInside", this.ViewModel.NeedLoadDetailsCommand);
-        }
-
-        private void UpdateDynamicView()
-        {
-            _detailsView?.Update(ViewModel);
+            this.ShowDetails.SetCommand("ValueChanged", this.ViewModel.LoadDetailsCommand);
         }
 
         private void NeedToloadChange()
         {
-            string buttonText;
-            if (NeedLoad == true)
+            if (this.ShowDetails.On)
             {
-                buttonText = "Hide Country";
                 _detailsView = InfoView.Create();
                 SomeDetailsView.Add(_detailsView);
                 _detailsView.Frame = SomeDetailsView.Bounds;
+                _detailsView.SetBinding(ViewModel);
             }
             else
             {
-                buttonText = "Show Country";
                 if (SomeDetailsView.Subviews.Length > 0)
                     SomeDetailsView.Delete(SomeDetailsView.Subviews[0]);
             }
-
-            ShowDetails.SetTitle(buttonText, UIControlState.Normal);
         }
     }
 }

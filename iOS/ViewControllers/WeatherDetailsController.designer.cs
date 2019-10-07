@@ -40,7 +40,11 @@ namespace WeatherExplorer1.iOS.ViewControllers
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton ShowDetails { get; set; }
+        UIKit.UISwitch ShowDetails { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel showHideLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -109,6 +113,11 @@ namespace WeatherExplorer1.iOS.ViewControllers
             if (ShowDetails != null) {
                 ShowDetails.Dispose ();
                 ShowDetails = null;
+            }
+
+            if (showHideLabel != null) {
+                showHideLabel.Dispose ();
+                showHideLabel = null;
             }
 
             if (SomeDetailsView != null) {

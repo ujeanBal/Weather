@@ -23,7 +23,8 @@
                 <outlet property="WindSpeed" destination="9804" id="name-outlet-9804"/>
                 <outlet property="WindSpeedLabel" destination="11846" id="name-outlet-11846"/>
                 <outlet property="SomeDetailsView" destination="14484" id="name-outlet-14484"/>
-                <outlet property="ShowDetails" destination="25946" id="name-outlet-25946"/>
+                <outlet property="ShowDetails" destination="63565" id="name-outlet-63565"/>
+                <outlet property="showHideLabel" destination="63986" id="name-outlet-63986"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -108,19 +109,16 @@
                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="25946" translatesAutoresizingMaskIntoConstraints="NO">
-                            <rect key="frame" x="28" y="392.5" width="302" height="30"/>
-                            <color key="backgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0.521032989" green="0.7258549333" blue="0.7376335859" alpha="1"/>
-                            <state key="normal" title="Show Country Name">
-                                <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <color key="titleShadowColor" colorSpace="custom" customColorSpace="sRGB" red="0.521032989" green="0.7258549333" blue="0.7376335859" alpha="1"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
-                                    <real key="value" value="10"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </button>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="63565" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="281" y="391" width="51" height="31"/>
+                            <color key="onTintColor" colorSpace="custom" customColorSpace="sRGB" red="0.521032989" green="0.7258549333" blue="0.7376335859" alpha="1"/>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="63986" translatesAutoresizingMaskIntoConstraints="NO">
+                            <rect key="frame" x="28" y="391" width="108" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint id="36100" firstAttribute="trailingMargin" secondItem="1951" secondAttribute="trailing" constant="20"/>
@@ -147,9 +145,10 @@
                         <constraint id="38701" firstItem="8096" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
                         <constraint id="38846" firstItem="11846" firstAttribute="top" secondItem="8096" secondAttribute="bottom" constant="40"/>
                         <constraint id="38863" firstItem="11846" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="38986" firstItem="25946" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
-                        <constraint id="38999" firstAttribute="trailingMargin" secondItem="25946" secondAttribute="trailing" constant="20"/>
-                        <constraint id="39012" firstAttribute="bottomMargin" secondItem="25946" secondAttribute="bottom" constant="29.5"/>
+                        <constraint id="63722" firstItem="63565" firstAttribute="top" secondItem="9804" secondAttribute="bottom" constant="40"/>
+                        <constraint id="63761" firstAttribute="trailingMargin" secondItem="63565" secondAttribute="trailing" constant="20"/>
+                        <constraint id="64236" firstItem="63986" firstAttribute="top" secondItem="11846" secondAttribute="bottom" constant="40"/>
+                        <constraint id="64276" firstItem="63986" firstAttribute="leading" secondItem="1886" secondAttribute="leadingMargin" constant="20"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1981" text="Town" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">

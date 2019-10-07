@@ -1,5 +1,4 @@
 using System;
-using CoreGraphics;
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
 using ObjCRuntime;
@@ -15,6 +14,8 @@ namespace WeatherExplorer1.iOS
 
         public static readonly NSString Key = new NSString("InfoView");
 
+        private WeatherDetailViewModel viewModel;
+
         public InfoView(IntPtr handle) : base(handle)
         {
         }
@@ -23,13 +24,12 @@ namespace WeatherExplorer1.iOS
         {
             var array = NSBundle.MainBundle.LoadNib(nameof(InfoView), null, null);
             var view = Runtime.GetNSObject<InfoView>(array.ValueAt(0));
-
             return view;
         }
 
-        public void Update(WeatherDetailViewModel vm)
-        {
-            CountryLabel.Text = vm.Country;
+        public void SetBinding(WeatherDetailViewModel vm) {
+            this.viewModel = vm;
+            this.SetBinding(() => this.viewModel.Country, () => CountryLabel.Text);
         }
     }
 }

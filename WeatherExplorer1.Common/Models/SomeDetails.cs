@@ -11,6 +11,7 @@ namespace WeatherExplorer1.Common.Models
         public string Country { get; set; }
         public SomeDetails()
         {
+            //Country = "";
         }
     }
 }

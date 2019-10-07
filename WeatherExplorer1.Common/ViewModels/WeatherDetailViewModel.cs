@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using WeatherExplorer1.Common.Helpers;
 using WeatherExplorer1.Common.Models;
 using WeatherExplorer1.Models;
@@ -9,41 +10,51 @@ namespace WeatherExplorer1.Common.ViewModels
 {
     public class WeatherDetailViewModel : BasicViewModel
     {
+        private readonly IDataStore<SomeDetails> _dataStore;
+
         private Weather _source;
 
         private SomeDetails info;
+
+        private bool _needShow;
+
+        private bool _isDetailsLoaded;
 
         public Command LoadDetailsCommand { get; set; }
 
         public Command NeedLoadDetailsCommand { get; set; }
 
-        public IDataStore<SomeDetails> DataStore;
-
-        private bool _isDetailsLoaded;
-
-        private bool _needToDetailsLoad;
-
         public WeatherDetailViewModel(Weather source, IDataStore<SomeDetails> dataStore)
         {
             _source = source;
             info = new SomeDetails();
-            DataStore = dataStore;
+            _dataStore = dataStore;
             Title = "Details";
-            LoadDetailsCommand = new Command(async () => await ExecuteLoadDetailsCommand());
-            NeedLoadDetailsCommand = new Command(() => ExecuteNeedLoadDetailsCommand());
-        }
-
-        private void ExecuteNeedLoadDetailsCommand()
-        {
-            NeedToDetailsLoad = NeedToDetailsLoad == true ? false : true;
+            LoadDetailsCommand = new Command(async () => await ExecuteLoadDetailsCommand());       
         }
 
         private async Task ExecuteLoadDetailsCommand()
         {
+            if (!IsDetailsLoaded)
+            { 
+                Country = (await _dataStore.GetItemAsync(_source.Id)).Country;
+                if (info != null)
+                {
+                    IsDetailsLoaded = true;
+                }
+            }
+        }
 
-            Country = (await DataStore.GetItemAsync(_source.Id)).Country;
-            if (info != null)
-                IsDetailsLoaded = true;
+        public bool NeedShow
+        {
+            get
+            {
+                return _needShow;
+            }
+            set
+            {
+                Set(ref _needShow, value);
+            }
         }
 
         public bool IsDetailsLoaded
@@ -57,20 +68,7 @@ namespace WeatherExplorer1.Common.ViewModels
                 Set(ref _isDetailsLoaded, value);
             }
         }
-
-        public bool NeedToDetailsLoad
-        {
-            get
-            {
-                return _needToDetailsLoad;
-            }
-            set
-            {
-                if (value == true) LoadDetailsCommand.Execute(null);
-                Set(ref _needToDetailsLoad, value);
-            }
-        }
-
+    
         public string Country
         {
             get
@@ -83,7 +81,6 @@ namespace WeatherExplorer1.Common.ViewModels
                 RaisePropertyChanged("Country");
             }
         }
-
 
         public string TownTitle
         {
